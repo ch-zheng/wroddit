@@ -1,0 +1,19 @@
+{
+  "name": "charliezh",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ChZheng2/charliezh.git"
+  },
+  "author": "Charlie Zheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ChZheng2/charliezh/issues"
+  },
+  "homepage": "https://gitlab.com/ChZheng2/charliezh#README"
+}
