@@ -4,18 +4,6 @@
 //Imports
 const express = require('express');
 const router = express.Router();
-//const mongoose = require('mongoose');
-
-//Database
-/*
-const mongoDB = 'mongodb://127.0.0.1/charliezh';
-mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
-let db = mongoose.connection;
-db.on('error', console.error.bind(
-	console, 'MongoDB connection error:'
-));
-*/
 
 router.get('/', (req, res) =>
 	//FIXME: Testing handlebar partials
