@@ -22,9 +22,7 @@ header img {
 	height: 3rem;
 	top: 0.2rem;
 }
-header h1, h2 {
-	line-height: 100%;
-}
+header h1, h2 {line-height: 100%;}
 header h1 {font-size: 2em;}
 header h2 {font-size: 1em;}
 header > h2 {text-transform: uppercase;}
@@ -38,31 +36,47 @@ header nav h2 {
 aside {
 	display: float;
 	float: right;
-	margin-top: 0.5rem;
-	margin-right: 0.5rem;
+	margin: 0.5rem;
 }
 aside form {
-	border: thin solid #808080;
+	margin-bottom: 0.4rem;
 	padding: 0.4rem;
+	border: thin solid #808080;
 }
-aside #submit-buttons {}
+aside button {
+	width: 100%;
+	margin: 0.4rem 0;
+	padding: 0.2em 0;
+	font: bold 1.2em sans-serif;
+	color: #336699;
+	background: linear-gradient(white, #EBF3FC);
+	border: thin solid #C4DBF1;
+}
+aside button:hover {
+	color: white;
+	background: linear-gradient(white, #5F99CF);
+	border: thin solid #5F99CF;
+}
 aside ul#mod-list {
 	padding: 0.2rem 0.4rem;
 	list-style-type: none;
 	border: thin solid #808080;
 }
 /* Main */
+main li {
+	color: #CCCCC7;
+	font-size: 2em;
+}
 article {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+	margin-bottom: 0.2rem;
+	color: black;
+	font-size: 0.5em;
 }
-article img {
-	height: 3rem;
-}
-article h1, p {
-	margin: 0;
-}
+article img {height: 3rem;}
+article h1, p {margin: 0;}
 /* Footer */
 footer {
 	clear: both;
