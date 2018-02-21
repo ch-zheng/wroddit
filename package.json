@@ -17,8 +17,9 @@
   },
   "homepage": "https://gitlab.com/ChZheng2/charliezh#README",
   "dependencies": {
-    "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "mongodb": "^3.0.2"
+    "hbs": "^4.0.1",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.6"
   }
 }

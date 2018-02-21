@@ -4,7 +4,10 @@ const express = require('express');
 const path = require('path');
 const server = express();
 
-server.set('view engine', 'ejs');
+//Express settings
+server.set('view engine', 'hbs');
+server.use(express.static('public'));
+//Express routing
 server.get('/', (req, res) => res.send('Hello World!'));
-server.use('/w/frankenstein', express.static(path.join(__dirname, 'public'), {index: 'frankenstein.html'}));
+server.get('/w/frankenstein', (req, res) => res.render('wroddit'));
 server.listen(3000, () => console.log('Listening on port 3000'));
