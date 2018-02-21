@@ -1,0 +1,61 @@
+/* frankenstein.css */
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 0.8em;
+}
+/* Header */
+header {
+	background-color: #CEE3F8;
+	border-bottom: thin solid #5F99CF;
+}
+/* TODO: Align to bottom */
+header * {
+	display: inline;
+	margin-right: 0.2rem;
+}
+header img {
+	position: relative;
+	width: 3rem;
+	height: 3rem;
+	top: 0.2rem;
+}
+header h1, h2 {
+	line-height: 100%;
+}
+header h1 {font-size: 2em;}
+header h2 {font-size: 1em;}
+header > h2 {text-transform: uppercase;}
+header nav h2 {
+	padding: 0 0.3em;
+	color: #336699;
+	background-color: #EFF7FF;
+	border-bottom: thin solid #5F99CF;
+}
+/* Aside */
+aside {
+	display: float;
+	float: right;
+}
+aside form {
+	border: thin solid #808080;
+	padding: 0.4rem;
+}
+aside #submission-buttons {}
+aside ul#mod-list {
+	list-style-type: none;
+	border: thin solid #808080;
+}
+/* Footer */
+footer {
+	clear: both;
+	text-align: center;
+}
+footer p {
+	color: #808080;
+	font-size: 0.8em;
+	line-height: 0.5em;
+}
