@@ -12,7 +12,6 @@ header {
 	background-color: #CEE3F8;
 	border-bottom: thin solid #5F99CF;
 }
-/* TODO: Align to bottom */
 header * {
 	display: inline;
 	margin-right: 0.2rem;
@@ -39,15 +38,30 @@ header nav h2 {
 aside {
 	display: float;
 	float: right;
+	margin-top: 0.5rem;
+	margin-right: 0.5rem;
 }
 aside form {
 	border: thin solid #808080;
 	padding: 0.4rem;
 }
-aside #submission-buttons {}
+aside #submit-buttons {}
 aside ul#mod-list {
+	padding: 0.2rem 0.4rem;
 	list-style-type: none;
 	border: thin solid #808080;
+}
+/* Main */
+article {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+article img {
+	height: 3rem;
+}
+article h1, p {
+	margin: 0;
 }
 /* Footer */
 footer {
@@ -57,5 +71,4 @@ footer {
 footer p {
 	color: #808080;
 	font-size: 0.8em;
-	line-height: 0.5em;
 }
