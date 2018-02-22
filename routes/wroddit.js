@@ -10,6 +10,15 @@ router.get('/', async (req, res) => {
     let posts = await getAllPosts();
     res.render('wroddit-browse', {posts: posts})
 });
+router.get('/comments', /*async*/ (req, res) =>
+	//TODO: Retrieve specific post using HTTP request info
+	res.render('wroddit-comments', {
+		//Silly example
+		post: {author: 'Man', title: 'Singular post'},
+		comments: [{author: 'Small man', points: '69', content: 'u suck.'}]
+	})
+);
+
 async function getAllPosts() {
     let queryResult = await Post.find({}).populate('user', User);
     return queryResult.map(res => {
