@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const TextPost = require('../schemas/textpost.js');
+const Post = require('../schemas/post.js');
 const User = require('../schemas/user.js');
 const express = require('express');
 const router = express.Router();
@@ -11,9 +11,9 @@ router.get('/', async (req, res) => {
     res.render('wroddit-browse', {posts: posts})
 });
 async function getAllPosts() {
-    let queryResult = await TextPost.find({}).populate('user', User);
+    let queryResult = await Post.find({}).populate('user', User);
     return queryResult.map(res => {
-        return { title: res.title, author: res.user.username }
+        return { title: res.title, author: res.user.username, id: res._id }
     });
 }
 

@@ -1,6 +1,6 @@
 const User = require('./schemas/user.js');
 const Comment = require('./schemas/comment.js');
-const TextPost = require('./schemas/textpost.js');
+const Post = require('./schemas/post.js');
 
 const mongoose = require('mongoose');
 const mongodb = 'mongodb://crack:crack@ds243728.mlab.com:43728/wroddit';
@@ -29,14 +29,15 @@ function createUser(username, passwd) {
     });
 }
 
-function createTextPost(title, content, user) {
+function createPost(title, content, user, kind = 'text') {
     textPost = {
         title: title,
         content: content,
         user: user,
+        kind: kind,
     }
 
-    const newPost = new TextPost(textPost);
+    const newPost = new Post(textPost);
     newPost.save(err => {
         if (err) {
             console.log(err);
@@ -51,9 +52,9 @@ createUser('hang', 'hang');
 createUser('charlie', 'charlie');
 createUser('ethan', 'ethan');
 setTimeout(() => {
-    createTextPost('hello', 'test content!', users[0]._id);
-    createTextPost('hi', 'test content!', users[1]._id);
-    createTextPost('hola', 'test content!', users[2]._id);
+    createPost('hello', 'test content!', users[0]._id);
+    createPost('hi', 'test content!', users[1]._id);
+    createPost('hola', 'test content!', users[2]._id);
 }, 2000)
 
 
