@@ -1,17 +1,21 @@
-//wroddit.js
 'use strict';
 
-//Imports
+const mongoose = require('mongoose');
+const TextPost = require('../schemas/textpost.js');
+const User = require('../schemas/user.js');
 const express = require('express');
 const router = express.Router();
+//TODO: LITERALLY ANY ERROR HANDLING AT ALL
+router.get('/', async (req, res) => {
+    let posts = await getAllPosts();
+    res.render('wroddit', {posts: posts})
+});
 
-router.get('/', (req, res) =>
-	//FIXME: Testing handlebar partials
-	res.render('wroddit', {posts: [
-		{title: 'Post #1', author: 'Charlie'},
-		{title: 'Post #2', author: 'Ethan'},
-		{title: 'Post #3', author: 'Hang'}
-	]})
-);
+async function getAllPosts() {
+    let queryResult = await TextPost.find({}).populate('user', User);
+    return queryResult.map(res => {
+        return { title: res.title, author: res.user.username }
+    });
+}
 
 module.exports = router;

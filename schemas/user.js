@@ -17,5 +17,11 @@ UserSchema
         return '/u/' + this.username
     });
 
+UserSchema
+    .virtual('name')
+    .get(function() {
+        return this.username;
+    });
+
 module.exports = mongoose.model('User', UserSchema);
 
