@@ -6,7 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const mongoose = require('mongoose');
-var ObjectId = require('mongoose').Types.ObjectId; 
+const ObjectId = mongoose.Types.ObjectId; 
 const Post = require('./schemas/post.js');
 
 mongoose.connect('mongodb://crack:crack@ds243728.mlab.com:43728/wroddit');
