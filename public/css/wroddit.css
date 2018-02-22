@@ -7,6 +7,9 @@ body {
 	font-family: sans-serif;
 	font-size: 0.8em;
 }
+a {
+	text-decoration: none;
+}
 /* Header */
 header {
 	background-color: #CEE3F8;
@@ -22,12 +25,12 @@ header img {
 	height: 3rem;
 	top: 0.2rem;
 }
-header h1, h2 {line-height: 100%;}
+header h1, header h2 {line-height: 100%;}
 header h1 {font-size: 2em;}
 header h2 {font-size: 1em;}
 header > h2 {text-transform: uppercase;}
 header nav h2 {
-	padding: 0 0.3em;
+	padding: 0 0.3rem;
 	color: #336699;
 	background-color: #EFF7FF;
 	border-bottom: thin solid #5F99CF;
@@ -41,12 +44,18 @@ aside {
 aside form {
 	margin-bottom: 0.4rem;
 	padding: 0.4rem;
+	padding-bottom: 0.8rem;
 	border: thin solid #808080;
+}
+aside form input:first-child {margin-bottom: 0.4rem;}
+aside form input[type="submit"] {
+	position: float;
+	float: right;
 }
 aside button {
 	width: 100%;
 	margin: 0.4rem 0;
-	padding: 0.2em 0;
+	padding: 0.2rem 0;
 	font: bold 1.2em sans-serif;
 	color: #336699;
 	background: linear-gradient(white, #EBF3FC);
@@ -64,19 +73,34 @@ aside ul#mod-list {
 }
 /* Main */
 main li {
-	color: #CCCCC7;
-	font-size: 2em;
+	margin-bottom: 1rem;
+	font: 1.5em serif;
+	color: #B7B7B7;
 }
 article {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	margin-bottom: 0.2rem;
+	margin-left: 0.2rem;
 	color: black;
-	font-size: 0.5em;
+	font: 0.8rem sans-serif;
 }
-article img {height: 3rem;}
-article h1, p {margin: 0;}
+article .post-voters * {
+	display: block;
+	margin: 0;
+	color: #B7B7B7;
+	font-weight: bold;
+}
+article img {height: 4rem;}
+article h1, article p {margin: 0;}
+article h1 {
+	font-size: 1.2em;
+}
+article .post-author {color: #B7B7B7;}
+article .post-actions {
+	font-weight: bold;
+	color: #888888;
+}
 /* Footer */
 footer {
 	clear: both;
@@ -84,5 +108,5 @@ footer {
 }
 footer p {
 	color: #808080;
-	font-size: 0.8em;
+	font-size: 0.8rem;
 }

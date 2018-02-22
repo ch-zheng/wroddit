@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{{!-- View wroddit post --}}
+{{#> wroddit_layout}}
+{{#*inline "content-block"}}
+	{{> wroddit_post}}
+	<section id="comments">
+		<h1>comments</h1>
+		{{#each comments}}
+			<div class="comment">
+				<h2>{{author}}</h2>
+				<p>{{points}}</p>
+				<p>{{content}}</p>
+			</div>
+		{{/each}}
+	</section>
+{{#*inline "content-block"}}
+{{/wroddit_layout}}

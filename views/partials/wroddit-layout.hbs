@@ -44,11 +44,9 @@
 			</ul>
 		</aside>
 		<main>
-			<ol>
-				{{#each posts}}
-					{{> wrodditpost}}
-				{{/each}}
-			</ol>
+			{{#> content-block}}
+				<p>There's nothing here.</p>
+			{{/content-block}}
 		</main>
 		<footer>
 			<p>Use of this site does not constitute acceptance of any user agreement or privacy policy. No rights reserved.</p>

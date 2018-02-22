@@ -8,9 +8,8 @@ const router = express.Router();
 //TODO: LITERALLY ANY ERROR HANDLING AT ALL
 router.get('/', async (req, res) => {
     let posts = await getAllPosts();
-    res.render('wroddit', {posts: posts})
+    res.render('wroddit-browse', {posts: posts})
 });
-
 async function getAllPosts() {
     let queryResult = await TextPost.find({}).populate('user', User);
     return queryResult.map(res => {
