@@ -1,15 +1,13 @@
 /* frankenstein.css */
-* {
-	box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 body {
 	margin: 0;
 	font-family: sans-serif;
 	font-size: 0.8em;
 }
-a {
-	text-decoration: none;
-}
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+a:visited {color: black;}
 /* Header */
 header {
 	background-color: #CEE3F8;
@@ -28,13 +26,15 @@ header img {
 header h1, header h2 {line-height: 100%;}
 header h1 {font-size: 2em;}
 header h2 {font-size: 1em;}
-header > h2 {text-transform: uppercase;}
+a h2 {text-transform: uppercase;}
+a#subtitle:visited {color: black;}
 header nav h2 {
 	padding: 0 0.3rem;
 	color: #336699;
 	background-color: #EFF7FF;
 	border-bottom: thin solid #5F99CF;
 }
+
 /* Aside */
 aside {
 	display: float;
@@ -71,12 +71,17 @@ aside ul#mod-list {
 	list-style-type: none;
 	border: thin solid #808080;
 }
+
 /* Main */
+main {margin: 1rem;}
+main ol {padding-left: 1rem;}
 main li {
 	margin-bottom: 1rem;
 	font: 1.5em serif;
 	color: #B7B7B7;
 }
+
+/* Post */
 article {
 	display: flex;
 	flex-flow: row nowrap;
@@ -91,6 +96,11 @@ article .post-voters * {
 	color: #B7B7B7;
 	font-weight: bold;
 }
+article .post-voters button {
+	padding: 0;
+	border: none;
+	background: none;
+}
 article img {height: 4rem;}
 article h1, article p {margin: 0;}
 article h1 {
@@ -101,6 +111,19 @@ article .post-actions {
 	font-weight: bold;
 	color: #888888;
 }
+
+/* Comment section */
+#commentsection h1 {
+	margin: 0;
+	font-weight: normal;
+}
+.comment * {
+	display: inline;
+	margin: 0 0.4rem 0 0;
+}
+.comment p:last-child {display: block;}
+.comment h2 {font: bold 1em sans-serif;}
+
 /* Footer */
 footer {
 	clear: both;

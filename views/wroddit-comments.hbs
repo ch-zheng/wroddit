@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 {{!-- View wroddit post comments --}}
-{{#> wroddit_layout}}
+{{#> wroddit_layout url="http://localhost:3000/w/frankenstein"}}
 {{#*inline "content-block"}}
 	{{> wroddit_post post}}
-	<section id="comments">
+	<section id="commentsection">
 		<h1>comments</h1>
 		<hr>
 		{{#each comments}}
 			<div class="comment">
 				<h2>{{author}}</h2>
-				<p>{{points}}</p>
+				<p>{{points}} points</p>
 				<p>{{content}}</p>
 			</div>
 		{{/each}}
