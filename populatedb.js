@@ -12,24 +12,19 @@ let users = [];
 let posts = [];
 let comments = [];
 
-function createUser(username, passwd) {
+async function createUser(username, passwd) {
     user = {
         username: username,
         hash: passwd,
     };
 
     const newUser = new User(user);
-    newUser.save(err => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log('New user: ' + user);
-        users.push(newUser);
-    });
+    await newUser.save();
+    console.log(`New User: ${user.username}`);
+    users.push(newUser);
 }
 
-function createPost(title, content, user, kind = 'text') {
+async function createPost(title, content, user, kind = 'text') {
     textPost = {
         title: title,
         content: content,
@@ -38,24 +33,25 @@ function createPost(title, content, user, kind = 'text') {
     }
 
     const newPost = new Post(textPost);
-    newPost.save(err => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log('New Post: ' + textPost);
-        posts.push(newPost);
-    })
+    await newPost.save();
+    console.log(`New Post: ${textPost.title}`);
+    posts.push(newPost);
 }
 
-createUser('hang', 'hang');
-createUser('charlie', 'charlie');
-createUser('ethan', 'ethan');
-setTimeout(() => {
-    createPost('hello', 'test content!', users[0]._id);
-    createPost('hi', 'test content!', users[1]._id);
-    createPost('hola', 'test content!', users[2]._id);
-}, 2000)
+createUser('hang', 'f')
+    .then(_ => createUser('charlie', 'f'))
+    .then(_ => createUser('ethan', 'f'))
+    .then(_ => createPost('filler', 'filler', users[0]._id))
+    .then(_ => createPost('filler', 'filler', users[1]._id));
+
+// createUser('hang', 'hang');
+// createUser('charlie', 'charlie');
+// createUser('ethan', 'ethan');
+// setTimeout(() => {
+//     createPost('hello', 'test content!', users[0]._id);
+//     createPost('hi', 'test content!', users[1]._id);
+//     createPost('hola', 'test content!', users[2]._id);
+// }, 2000)
 
 
 
