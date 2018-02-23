@@ -124,6 +124,11 @@ article .post-actions {
 .comment p:last-child {display: block;}
 .comment h2 {font: bold 1em sans-serif;}
 
+/* Submission */
+main form * {
+	display: block;
+}
+
 /* Footer */
 footer {
 	clear: both;

@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId; 
+const ObjectId = mongoose.Types.ObjectId;
 const Post = require('../schemas/post.js');
 const User = require('../schemas/user.js');
 const express = require('express');
@@ -25,11 +25,15 @@ router.get('/comments/:id', async (req, res, next) => {
         res.render('wroddit-comments', {
             post: {author: post.user.username , title: post.title },
             //TODO: make it serve the actual comments
-       	    comments: [{author: 'Small man', points: '69', content: 'u suck.'}]
+            comments: [{author: 'Small man', points: '69', content: 'u suck.'}]
         })
     } catch(e) {
         next(e)
     }
+});
+
+router.get('/submit', /*async*/ (req, res) => {
+    res.render('wroddit-submit');
 });
 
 module.exports = router;
