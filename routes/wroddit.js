@@ -33,8 +33,28 @@ router.get('/comments/:id', async (req, res, next) => {
     }
 });
 
-router.get('/submit', /*async*/ (req, res) => {
+router.get('/submit', (req, res) => {
     res.render('wroddit-submit');
+});
+
+router.post('/submit/text', async (req, res, next) => {
+    try {
+        let user = await User.findOne({ username: req.body.username });
+        if (!user) {
+            return res.redirect('/');
+        }
+        let post = {
+            title: req.body.title,
+            content: req.body.text,
+            kind: 'text',
+            user: user._id,
+        }
+        let newPost = new Post(post);
+        await newPost.save();
+        res.redirect('/');
+    } catch(e) {
+        next(e)
+    }
 });
 
 module.exports = router;
