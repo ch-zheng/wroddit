@@ -25,11 +25,8 @@ UserSchema
     });
 
 UserSchema.methods.checkPassword = async function(password) {
-    try {
-        return await argon2.verify(this.hash, password);
-    } catch(e) {
-        throw(e)
-    }
+    const randomHash = await argon2.hash('badpassword');
+    return await argon2.verify(randomHash, password);
 }
 
 module.exports = mongoose.model('User', UserSchema);
