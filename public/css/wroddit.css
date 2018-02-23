@@ -29,7 +29,7 @@ header h2 {font-size: 1em;}
 a h2 {text-transform: uppercase;}
 a#subtitle:visited {color: black;}
 header nav h2 {
-	padding: 0 0.3rem;
+	padding: 0 0.4rem;
 	color: #336699;
 	background-color: #EFF7FF;
 	border-bottom: thin solid #5F99CF;
@@ -39,7 +39,7 @@ header nav h2 {
 aside {
 	display: float;
 	float: right;
-	margin: 0.5rem;
+	margin: 0.4rem;
 }
 aside form {
 	margin-bottom: 0.4rem;
@@ -52,16 +52,18 @@ aside form input[type="submit"] {
 	position: float;
 	float: right;
 }
-aside button {
+aside .submit-button {
+	display: block;
 	width: 100%;
 	margin: 0.4rem 0;
 	padding: 0.2rem 0;
+	text-align: center;
 	font: bold 1.2em sans-serif;
 	color: #336699;
 	background: linear-gradient(white, #EBF3FC);
 	border: thin solid #C4DBF1;
 }
-aside button:hover {
+aside .submit-button:hover {
 	color: white;
 	background: linear-gradient(white, #5F99CF);
 	border: thin solid #5F99CF;
@@ -77,7 +79,7 @@ main {margin: 1rem;}
 main ol {padding-left: 1rem;}
 main li {
 	margin-bottom: 1rem;
-	font: 1.5em serif;
+	font: 1.4em serif;
 	color: #B7B7B7;
 }
 
@@ -125,8 +127,33 @@ article .post-actions {
 .comment h2 {font: bold 1em sans-serif;}
 
 /* Submission */
-main form * {
-	display: block;
+main h1, main h2 {
+	margin: 0;
+	font: normal 1.4em sans-serif;
+}
+main p.yellowbox {
+	width: 40%;
+	padding: 0.2rem;
+	background-color: #F6E69F;
+	border: thin solid #FFA500;
+}
+main form {width: 40%;}
+main form * {display: block;}
+main form fieldset {
+	padding: 0.6rem 0.8rem;
+	border: none;
+	border-radius: 0.4rem;
+	background-color: #CEE3F8;
+	margin: 0.8rem 0;
+}
+main form textarea {width: 100%;}
+main form textarea[name="title"] {font: 1.6em sans-serif;}
+main form textarea[name="text"] {font: 1.2em sans-serif;}
+main form p {
+	padding: 0.4rem;
+	background-color: #E4F2FB;
+	border: thin solid #5F99CF;
+	border-radius: 0.4rem;
 }
 
 /* Footer */
