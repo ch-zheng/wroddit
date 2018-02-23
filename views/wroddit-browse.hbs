@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-{{!-- wroddit page that lists all posts --}}
+{{!-- wroddit page that lists posts --}}
 {{#> wroddit_layout}}
 {{#*inline "content-block"}}
 	<ol>
 		{{#each posts}}
-			{{> wroddit_post}}
+			<li>
+				{{> wroddit_post}}
+			</li>
 		{{/each}}
 	<ol>
 {{/inline}}
