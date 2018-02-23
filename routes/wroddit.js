@@ -6,6 +6,7 @@ const Post = require('../schemas/post.js');
 const User = require('../schemas/user.js');
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 //TODO: LITERALLY ANY ERROR HANDLING AT ALL
 router.get('/', async (req, res, next) => {
     try {
