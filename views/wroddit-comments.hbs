@@ -8,8 +8,9 @@
 		<h1>comments</h1>
 		<hr>
 		<form id="submit-comment" action="/w/frankenstein/comments/{{post.id}}/submit" method="post">
-			<textarea name="comment" form="submit-comment" rows=4></textarea>
-			<input type="submit" value="save">
+                    <textarea name="comment" form="submit-comment" rows=4></textarea>
+                    <input name="username" type="text" placeholder="user">
+                    <input type="submit" value="save">
 		</form>
 		{{#each comments}}
 			<div class="comment">

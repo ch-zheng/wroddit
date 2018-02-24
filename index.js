@@ -72,12 +72,10 @@ const argon2 = require('argon2');
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(function(username, password, done) {
-    console.log('hi');
     User.findOne({ username: username }, (err, user) => {
         if (err) { return done(err) }
         const message = 'Incorrect Username or password';
         if (!user) {
-            console.log('denied bcs username!');
             return done(null, false, { message: message });
         }
         user.checkPassword(password)
@@ -86,7 +84,6 @@ passport.use(new LocalStrategy(function(username, password, done) {
                     done(null, user);
                 }
                 else {
-                    console.log('denied bcs psswd!');
                     done(null, false, { message: message });
                 }
             }).catch(err => {
@@ -104,9 +101,6 @@ passport.deserializeUser((id, done) => {
 })
 //TODO: dedicated forms for logging in
 server.post('/login', (req, res, next) => {
-    console.log('received post request');
-    //console.log(req.body.password);
-    console.log('g');
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/',
@@ -116,11 +110,9 @@ server.post('/login', (req, res, next) => {
 server.listen(3000, () => console.log('Listening on port 3000'));
 
 async function upvotePost(id) {
-    console.log('upvoting post');
     return await Post.findByIdAndUpdate(new ObjectId(id), {$inc: {score: 1}}); 
 }
 
 async function downvotePost(id) {
-    console.log('downvoting post');
     return await Post.findByIdAndUpdate(new ObjectId(id), {$inc: {score: -1}});
 }
