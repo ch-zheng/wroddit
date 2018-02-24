@@ -51,7 +51,7 @@ server.get('/', (req, res) => res.redirect('/w/frankenstein'));
 // Different route to /r/...
 server.use('/users', userRouter);
 server.use('/w/frankenstein', wrodditRouter);
-server.post('/api/upvote/:postId', async (req, res, next) => { 
+server.post('/api/upvote/:id', async (req, res, next) => { 
     try {
         await upvotePost(req.params.id);
         res.sendStatus(200);
@@ -59,7 +59,7 @@ server.post('/api/upvote/:postId', async (req, res, next) => {
         next(e);
     }
 });
-server.post('/api/downvote/:postId', async (req, res) => {
+server.post('/api/downvote/:id', async (req, res) => {
     try {
         await downvotePost(req.params.id);
         res.sendStatus(200);
@@ -110,9 +110,9 @@ server.post('/login', (req, res, next) => {
 server.listen(3000, () => console.log('Listening on port 3000'));
 
 async function upvotePost(id) {
-    return await Post.findByIdAndUpdate(new ObjectId(id), {$inc: {score: 1}}); 
+    return await Post.findByIdAndUpdate(id, {$inc: {score: 1}}); 
 }
 
 async function downvotePost(id) {
-    return await Post.findByIdAndUpdate(new ObjectId(id), {$inc: {score: -1}});
+    return await Post.findByIdAndUpdate(id, {$inc: {score: -1}});
 }

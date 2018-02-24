@@ -11,7 +11,7 @@ const passport = require('passport');
 //TODO: LITERALLY ANY ERROR HANDLING AT ALL
 router.get('/', async (req, res, next) => {
     try {
-        let posts = await Post.find({}).populate('user', User).sort('score');
+        let posts = await Post.find({}).populate('user', User).sort({ score: -1 });
         posts = posts.map(res => {
             return { title: res.title, author: res.user.username, id: res._id }
         })
