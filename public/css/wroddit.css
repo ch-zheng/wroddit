@@ -131,6 +131,10 @@ article .post-actions {
 #commentsection > form {
 	margin-bottom: 1.2rem;
 }
+.comment{
+	width: 50%;
+	margin-bottom: 1rem;
+}
 .comment * {
 	display: inline;
 	margin: 0 0.4rem 0 0;
