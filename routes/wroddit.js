@@ -32,9 +32,8 @@ router.get('/comments/:id', async (req, res, next) => {
                     path: 'user',
                     model: User,
                 }
-            })
+            }).sort('score')
         let rootComments = post.root_comments;
-        console.log(rootComments);
 
         rootComments = rootComments
             .map((com, i) => {
