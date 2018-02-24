@@ -12,12 +12,24 @@
 			<input type="submit" value="save">
 		</form>
 		{{#each comments}}
-			<div class="comment">
+			<div id="{{id}}" class="comment">
 				<h2>{{author}}</h2>
 				<p>{{points}} points</p>
-				<p>{{content}}</p>
+				<p class="comment-content">{{content}}</p>
+				<a href="#" onclick="toggle_visibility('replyto-{{id}}');">reply</a>
+				<form id="replyto-{{id}}" method="post">
+					<textarea name="reply" form="replyto-{{id}}" rows=2></textarea>
+					<input type="submit" value="submit">
+				</form>
 			</div>
 		{{/each}}
 	</section>
+	<script type="text/javascript">
+		function toggle_visibility(id) {
+			let e = document.getElementById(id);
+			if (e.style.display == 'block') e.style.display = 'none';
+			else e.style.display = 'block';
+		}
+	</script>
 {{/inline}}
 {{/wroddit_layout}}

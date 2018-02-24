@@ -128,18 +128,19 @@ article .post-actions {
 	margin: 0;
 	font-weight: normal;
 }
-#commentsection form {
+#commentsection > form {
 	margin-bottom: 1.2rem;
 }
 .comment * {
 	display: inline;
 	margin: 0 0.4rem 0 0;
 }
-.comment p:last-child {
+.comment h2 {font: bold 1em sans-serif;}
+.comment-content {
 	display: block;
 	font-size: 1.1em;
 }
-.comment h2 {font: bold 1em sans-serif;}
+.comment form {display: none;}
 
 /* Submission */
 main h1, main h2 {
