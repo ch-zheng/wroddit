@@ -8,12 +8,10 @@ const argon2 = require('argon2');
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(function(username, password, done) {
-    console.log('stuff used yay');
     User.findOne({ username: username }, (err, user) => {
         if (err) { return done(err) }
         const message = 'Incorrect Username or password';
         if (!user) {
-            console.log('denied!');
             return done(null, false, { message: message });
         }
         user.checkPassword(password)
@@ -39,8 +37,6 @@ passport.deserializeUser((id, done) => {
 })
 //TODO: dedicated forms for logging in
 router.post('/login', (req, res, next) => {
-    console.log('received post request');
-    console.log(req.body.password);
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/',
@@ -52,7 +48,7 @@ router.post('/create', async(req, res, next) => {
     let user = await User.findOne({ username: req.username });
     try {
         if (user) {
-            console.log('Username is taken: figure out how to get clients to handle this');
+            // TODO: Inform the user that user is taken
         } else {
             const hash = await argon2.hash(req.password, { parallelism: 2 });
             let new_user = { username: req.username, hash: hash };
