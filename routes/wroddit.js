@@ -24,7 +24,7 @@ router.get('/comments/:id', async (req, res, next) => {
     try {
         let post = await Post.findById(new ObjectId(req.params.id)).populate('user', User);
         res.render('wroddit-comments', {
-            post: {author: post.user.username , title: post.title },
+            post: {author: post.user.username, title: post.title, content: post.content},
             //TODO: make it serve the actual comments
             comments: [{author: 'Small man', points: '69', content: 'u suck.'}]
         })

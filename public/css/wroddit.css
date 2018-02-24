@@ -8,6 +8,7 @@ body {
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 a:visited {color: black;}
+
 /* Header */
 header {
 	background-color: #CEE3F8;
@@ -115,15 +116,29 @@ article .post-actions {
 }
 
 /* Comment section */
+#content {
+	width: 50%;
+	padding: 0.4rem;
+	font-size: 1.1em;
+	border: thin solid #336699;
+	border-radius: 0.4rem;
+	background-color: #FAFAFA;
+}
 #commentsection h1 {
 	margin: 0;
 	font-weight: normal;
+}
+#commentsection form {
+	margin-bottom: 1.2rem;
 }
 .comment * {
 	display: inline;
 	margin: 0 0.4rem 0 0;
 }
-.comment p:last-child {display: block;}
+.comment p:last-child {
+	display: block;
+	font-size: 1.1em;
+}
 .comment h2 {font: bold 1em sans-serif;}
 
 /* Submission */

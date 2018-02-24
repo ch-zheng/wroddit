@@ -3,9 +3,14 @@
 {{#> wroddit_layout}}
 {{#*inline "content-block"}}
 	{{> wroddit_post post}}
+	<p id="content">{{post.content}}<p>
 	<section id="commentsection">
 		<h1>comments</h1>
 		<hr>
+		<form id="submit-comment" action="/w/frankenstein/comments/{{post.id}}/submit" method="post">
+			<textarea name="comment" form="submit-comment" rows=4></textarea>
+			<input type="submit" value="save">
+		</form>
 		{{#each comments}}
 			<div class="comment">
 				<h2>{{author}}</h2>
